@@ -54,7 +54,7 @@ CREATE TABLE `chamado` (
   KEY `chamado_atendente_idx` (`idatendente`),
   CONSTRAINT `chamado_atendente` FOREIGN KEY (`idatendente`) REFERENCES `usuario` (`idusuario`),
   CONSTRAINT `chamado_autor` FOREIGN KEY (`idautor`) REFERENCES `usuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -111,7 +111,11 @@ SET character_set_client = utf8;
   `dataatendimento` tinyint NOT NULL,
   `datacancelamento` tinyint NOT NULL,
   `datafechamento` tinyint NOT NULL,
-  `prioridade` tinyint NOT NULL
+  `prioridade` tinyint NOT NULL,
+  `cpf_autor` tinyint NOT NULL,
+  `nome_autor` tinyint NOT NULL,
+  `cpf_atendente` tinyint NOT NULL,
+  `nome_atendente` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -157,7 +161,7 @@ USE `helpub`;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER */
-/*!50001 VIEW `chamado_priorizado` AS select `chamado`.`idchamado` AS `idchamado`,`chamado`.`tipoocorrencia` AS `tipoocorrencia`,`chamado`.`destino` AS `destino`,`chamado`.`descricao` AS `descricao`,`chamado`.`idatendente` AS `idatendente`,`chamado`.`datacadastro` AS `datacadastro`,`chamado`.`idautor` AS `idautor`,`chamado`.`deviceid` AS `deviceid`,`chamado`.`numtelefone` AS `numtelefone`,`chamado`.`pathimagem` AS `pathimagem`,`chamado`.`longitude` AS `longitude`,`chamado`.`latitude` AS `latitude`,`chamado`.`situacao` AS `situacao`,`chamado`.`observacao` AS `observacao`,`chamado`.`trote` AS `trote`,`chamado`.`dataatendimento` AS `dataatendimento`,`chamado`.`datacancelamento` AS `datacancelamento`,`chamado`.`datafechamento` AS `datafechamento`,(case `chamado`.`tipoocorrencia` when 'TE' then 1 when 'HO' then 2 when 'RO' then 3 when 'VI' then 4 else 9 end) AS `prioridade` from `chamado` where (`chamado`.`situacao` = 'A') order by (case `chamado`.`tipoocorrencia` when 'TE' then 1 when 'HO' then 2 when 'RO' then 3 when 'VI' then 4 else 9 end),`chamado`.`idchamado` */;
+/*!50001 VIEW `chamado_priorizado` AS select `c`.`idchamado` AS `idchamado`,`c`.`tipoocorrencia` AS `tipoocorrencia`,`c`.`destino` AS `destino`,`c`.`descricao` AS `descricao`,`c`.`idatendente` AS `idatendente`,`c`.`datacadastro` AS `datacadastro`,`c`.`idautor` AS `idautor`,`c`.`deviceid` AS `deviceid`,`c`.`numtelefone` AS `numtelefone`,`c`.`pathimagem` AS `pathimagem`,`c`.`longitude` AS `longitude`,`c`.`latitude` AS `latitude`,`c`.`situacao` AS `situacao`,`c`.`observacao` AS `observacao`,`c`.`trote` AS `trote`,`c`.`dataatendimento` AS `dataatendimento`,`c`.`datacancelamento` AS `datacancelamento`,`c`.`datafechamento` AS `datafechamento`,(case `c`.`tipoocorrencia` when 'TE' then 1 when 'HO' then 2 when 'RO' then 3 when 'VI' then 4 else 9 end) AS `prioridade`,`autor`.`cpf` AS `cpf_autor`,`autor`.`nomecompleto` AS `nome_autor`,`atendente`.`cpf` AS `cpf_atendente`,`atendente`.`nomecompleto` AS `nome_atendente` from ((`chamado` `c` left join `usuario` `atendente` on((`atendente`.`idusuario` = `c`.`idatendente`))) left join `usuario` `autor` on((`autor`.`idusuario` = `c`.`idautor`))) order by (case `c`.`tipoocorrencia` when 'TE' then 1 when 'HO' then 2 when 'RO' then 3 when 'VI' then 4 else 9 end),`c`.`idchamado` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -171,4 +175,4 @@ USE `helpub`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-05 19:52:27
+-- Dump completed on 2016-11-06  0:45:15
