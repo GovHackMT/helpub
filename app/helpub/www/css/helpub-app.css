@@ -1,0 +1,105 @@
+.icon-calls {
+    width: 28.333333%;
+    height: auto;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+    .icon-calls h5 {
+        margin: 0;
+    }
+
+.no-pic {
+    display: none;
+}
+
+#main-loader{
+    position: absolute;
+    background-image: url(../img/loader.gif);
+    background-size: 50px 50px;
+    z-index: 13000;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+
+#main-loader-text {
+    position: absolute;
+    top: 106px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    display: block;
+    width: 69%;
+    z-index: 13000;
+    height: 50px;
+    margin: auto;
+}
+
+.action-btn {
+    display: block;
+    background-color: #39ca74;
+    border-radius: 5px;
+    height: 30px;
+    padding-top: 13px;
+    color: #FFF;
+}
+.btn-login, .btn-salvar {
+    margin-bottom: 10px;
+    background-color: #2196f3;
+    text-align: center;
+}
+.icon-calls .img-call {
+    border-radius:5px;
+}
+.icon-calls h5 {
+    color: #000;
+}
+#box-msg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+}
+
+#txt-send {
+    color: #fff;
+}
+    /* do not group these rules */
+    #txt-send::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.61);
+    }
+
+    #txt-send:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.61);
+    }
+
+.messagebar-send {
+    background-color: rgba(102, 99, 99, 0.61) !important;
+    position: absolute !important;
+}
+
+#btn-send {
+    color: #39ca74;
+    padding-left: 5px;
+}
+
+.content-full {
+    margin: 0;
+    padding: 0;
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+}

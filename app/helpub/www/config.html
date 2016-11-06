@@ -1,0 +1,139 @@
+<div data-page="config" class="page">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left sliding">
+                <a href="#" class="back link">
+                    {{#if @global.isAndroid}}
+                       <img src="img/new-arrow-left.png" width="25" height="20" />
+                    {{else}}
+                       <img class="ios-arrow" src="img/new-arrow-ios-green.png" width="20" height="20" />
+                    {{/if}}
+                </a>
+                <span>{{@global.str.general.settings}}</span>            
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="content-block">
+            <h3>{{@global.str.config.searchBy}}</h3>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">{{@global.str.config.men}}</div>
+                            <div class="item-inner">
+                                <div class="item-input item-input-gender">
+                                    <label class="label-switch">
+                                        <input class="config-gender" id="male-input" {{#if byMale}}checked="checked"{{/if}} type="checkbox">
+                                            <div class="checkbox"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">{{@global.str.config.women}}</div>
+                            <div class="item-inner">
+                                <div class="item-input item-input-gender">
+                                    <label class="label-switch">
+                                        <input class="config-gender" id="female-input" {{#if byFemale}}checked="checked"{{/if}} type="checkbox">
+                                            <div class="checkbox"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <h3>{{@global.str.config.distanceIn}}</h3>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <label class="label-radio item-content">
+                            <!-- Checked by default -->
+                            <input id="distanceinkm-input" type="radio" name="distancein-radio" {{#if inKm}}checked="checked"{{/if}} value="km">
+                                   <div class="item-media">
+                                <i class="icon icon-form-radio"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">{{@global.str.config.kilometers}}</div>
+                            </div>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="label-radio item-content">
+                            <input id="distanceinmi-input" type="radio" name="distancein-radio" {{#if inMile}}checked="checked"{{/if}} value="mi">
+                                   <div class="item-media">
+                                <i class="icon icon-form-radio"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">{{@global.str.config.miles}}</div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>    
+            <h3>{{@global.str.config.searchDistance}}</h3>
+            <div class="list-block">
+                <ul>
+                    <li id="km-box" {{#if inMile}} style="display:none;"{{/if}}>
+                        <div class="item-content">
+                            <div class="item-media">KM</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <div class="range-slider">
+                                        <input id="km-input" data-target="#rangekmvalue" type="range" min="0" max="300" value="{{kmValue}}" step="2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="range-output-right">
+                                <output id="rangekmvalue">{{kmValue}}</output>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="mi-box" {{#if inKm}} style="display:none;"{{/if}} >
+                        <div class="item-content">
+                            <div class="item-media">MI</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <div class="range-slider">
+                                        <input id="mi-input" data-target="#rangemivalue" type="range" min="0" max="186" value="{{miValue}}" step="2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="range-output-right">
+                                <output id="rangemivalue">{{miValue}}</output>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>    
+            <h3>{{@global.str.config.ageBetween}}</h3>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="range-output-left ">
+                                <output id="rangestartagevalue">{{startAge}}</output>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <div class="multiple-range">
+                                        <div id="connect"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="range-output-right">
+                                <output id="rangeendagevalue">{{endAge}}</output>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>    
+            <p><a id="btn-logout" href="#" class="button color-indigo">{{@global.str.config.logout}}</a></p>
+            <p><a id="btn-deleteaccount" href="#" class="button color-red">{{@global.str.config.deleteAccount}}</a></p>
+        </div>                                                                                                        
+    </div>
+    <!-- script type="text/javascript" src="js/config-actions.js"></script>  -->
+</div>

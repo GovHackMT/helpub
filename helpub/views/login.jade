@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    title Helpub Admin
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', type='text/css', href='/static/css/vendor.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/flat-admin.css')
+
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/blue-sky.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/blue.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/red.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/yellow.css')
+
+    link(rel='apple-touch-icon', sizes='57x57', href='/static/favicon/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='/static/favicon/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/static/favicon/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='/static/favicon/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/static/favicon/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='/static/favicon/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/static/favicon/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='/static/favicon/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/static/favicon/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/static/favicon/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='/static/favicon/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='/static/favicon/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='/static/favicon/favicon-16x16.png')
+    link(rel='manifest', href='/static/favicon/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='/static/favicon/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
+
+  body(style="background-color:#DDD;")
+    .app.app-default
+      .app-container.app-login(style="background-color:#DDD;")
+        .flex-center
+          .app-header
+          .app-body
+            .loader-container.text-center
+              .icon
+                .sk-folding-cube
+                  .sk-cube1.sk-cube
+                  .sk-cube2.sk-cube
+                  .sk-cube4.sk-cube
+                  .sk-cube3.sk-cube
+            .app-block
+              .app-form
+                .form-header
+                  div.text-center
+                    h3.my-blue Helpub - Painel de Controle
+                    img(src="/static/images/logo2.fw.png")
+                form#form-login(action="/login/autenticar",method="post")
+                  .input-group(style="margin-bottom:5px !important;")
+                    span#basic-addon1.input-group-addon
+                      i.fa.fa-user(aria-hidden='true')
+                    input.form-control.cpf-mask(value='031.484.711-13' type='text', name="cpf"  data-msg-required='O campo deve ser preenchido' placeholder='Digite seu CPF', aria-describedby='basic-addon1')
+                  label#cpf-error.error(for='cpf',style='display:none;')
+                  .input-group(style="margin-bottom:5px !important;")
+                    span#basic-addon2.input-group-addon
+                      i.fa.fa-key(aria-hidden='true')
+                    input.form-control(value='123456' type='password', name="senha" data-msg-required='O campo deve ser preenchido' placeholder='Digite sua senha', aria-describedby='basic-addon2')
+                  label#password-error.error(for='password',style='display:none;')
+
+                  .text-center
+                    button#submit-form.btn.btn-primary.btn-submit(type='button') Entrar
+          .app-footer
+    script(type='text/javascript', src='/static/js/vendor.js')
+    //script(type='text/javascript', src='/static/js/app.js')
+    script(type='text/javascript', src='/static/js/jquery.validate.min.js')
+    script(type='text/javascript', src='/static/js/jquery.mask.min.js')
+    script(type='text/javascript', src='/static/js/core.js')
+    script(type='text/javascript', src='/static/js/login.js')
+

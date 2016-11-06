@@ -1,0 +1,58 @@
+extends layout
+
+block content
+
+  .row
+    .col-md-12
+      h4 Dashboard - Chamados das últimas 24 horas
+  .row
+    .col-lg-4.col-md-6.col-sm-6.col-xs-12
+      a.card.card-banner.card-green-light
+        .card-body
+          i.icon.fa.fa-folder-open-o.fa-4x
+          .content
+            .title Chamados abertos
+            .value#cmh-aberto ...
+    .col-lg-4.col-md-6.col-sm-6.col-xs-12
+      a.card.card-banner.card-blue-light
+        .card-body
+          i.icon.fa.fa-refresh.fa-4x
+          .content
+            .title Chamados atendidos
+            .value#cmh-atendido ...
+    .col-lg-4.col-md-6.col-sm-6.col-xs-12
+      a.card.card-banner.card-yellow-light
+        .card-body
+          i.icon.fa.fa-times.fa-4x
+          .content
+            .title Chamados cancelados
+            .value#cmh-cancelado ...
+
+  .row(style="margin-top:10px;")
+    .col-lg-4.col-md-6.col-sm-6.col-xs-12
+      a.card.card-banner.card-green-light
+        .card-body
+          i.icon.fa.fa-check.fa-4x
+          .content
+            .title Chamados finalizados
+            .value#cmh-finalizado ...
+
+    .col-lg-4.col-md-6.col-sm-6.col-xs-12
+      a.card.card-banner.card-blue-light
+        .card-body
+          i.icon.fa.fa-bullhorn.fa-4x
+          .content
+            .title Total de trotes
+            .value#cmh-trote ...
+
+  .row(style="margin-top:10px;")
+    .col-md-12
+      #myMap(style="width:100%;height:500px;")
+        
+block javascript
+  script(type='text/javascript',src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRBa1Fu2HJjSZTG4PUMnspbWZpNONKMGg")
+  script(type='text/javascript', src='/static/js/principal.js')
+
+
+
+

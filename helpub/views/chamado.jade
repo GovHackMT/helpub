@@ -1,0 +1,117 @@
+extends layout
+
+block content
+  .card.card-mini
+    .card-header
+      .card-title 
+        i.fa.fa-bullhorn
+        |  Lista de chamados
+    .card-body.no-padding
+      .row
+        .col-md-12
+          #console
+
+        div#loading-chamado.text-center.col-md-12(style="padding:50px;")
+          i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw
+          h3  Carregando...
+
+        .col-md-4
+          .form-group#box-filtro-chamado(style="padding:10px;display:none;")
+            label(for="filtrar-chamado") Filtrar por tipo de ecorrência
+            select#filtrar-chamado.form-control
+              option(selected="selected",value="*") Ver todos
+              option(value="AC") Acidente
+              option(value="AS") Assalto
+              option(value="HO") Homicídio
+              option(value="IN") Incêndio
+              option(value="TE") Tentativa de Homicídio
+              option(value="RO") Roubo/Furto
+              option(value="SE") Sequestro
+              option(value="VI") Violência doméstica
+        .col-md-12#box-legenda(style="display:none;")
+          .form-group(style="padding:10px;")
+            label(style='margin-top:5px;') Filtrar por situação
+            br
+            a.opacity-hover.opacity-hover-active(data-situacao='*' ,style="cursor:pointer;background-color:#EEE;color:#666;display:inline-block;padding:5px 5px 5px 5px;") Ver todos
+            a.opacity-hover(data-situacao='A', style="cursor:pointer;background-color:#d9edf7;color:#31708f;display:inline-block;padding:5px 5px 5px 5px;") Em aberto
+            a.opacity-hover(data-situacao='E' ,style="cursor:pointer;background-color:#fcf8e3;color:#8a6d3b;display:inline-block;padding:5px 5px 5px 5px;") Em andamento
+            a.opacity-hover(data-situacao='C' ,style="cursor:pointer;background-color:#f2dede;color:#a94442;display:inline-block;padding:5px 5px 5px 5px;") Cancelado
+            a.opacity-hover(data-situacao='F' ,style="cursor:pointer;background-color:#dff0d8;color:#3c763d;display:inline-block;padding:5px 5px 5px 5px;") Concluído
+
+      #box-table-chamado(style="display:none;")
+        .table-responsive
+          table#table-chamado.table.card-table.table-hover.table-condensed
+            thead
+              tr
+                th Cód.
+                th SIM Serial Autor
+                th Ocorrência
+                th Destino
+                th Enviado em
+                th Ações
+            tbody
+
+  #modal-chamado.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4#myModalLabel.modal-title Informações do chamado
+        .modal-body(style="padding:10px;overflow-y:auto;max-height:500px;")
+          input(type="hidden",id="modal-id-chamado")
+          div#loading-chamado-modal.text-center(style="width:100%;padding:50px;")
+            i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw
+            h3  Carregando...
+
+          ul#tabs-geral.nav.nav-tabs(role='tablist',style="display:none;")
+            li#first-tab.active(role='presentation')
+              a(href='#geral', role='tab', data-toggle='tab', aria-controls='geral', aria-expanded='true') Geral
+            li#foto-tab(role='presentation')
+              a(href='#foto', role='tab', data-toggle='tab', aria-controls='foto') Foto
+            li(role='presentation')
+              a(href='#mapa', role='tab', data-toggle='tab', aria-controls='mapas') Mapa
+
+          #container-geral.container-tab(style="display:none;")
+
+            p#t-codigo
+            p#t-situacao
+            p#t-celular
+            p#t-descricao
+            p#t-trote
+            p#t-observacao
+            p#t-destino
+            p#t-atendente
+            p#t-autor
+            p#t-codigo-dispositivo
+            p#t-enviado-em
+            p#t-atentido-em
+            p#t-cancelado-em
+            p#t-concluido-em
+
+          #container-foto.container-tab.text-center(style="display:none;")
+            img#foto(style="height:400px")
+
+          #container-mapa.container-tab(style="display:none;")
+            #myMap(style="width:100%;height:400px;")
+
+          #container-comentario.container-tab(style="display:none;")
+            h3 Preencha o formuário para finalizar o chamado
+            br
+            .form-group#box-is-trote
+              input(type="checkbox", id="isTrote") 
+              |  O chamado é um trote?
+            br
+            .form-group
+              label Observação
+              textarea.form-control(rows="6",placeholder="Digite a observação (caso necessário)", id="observacao")
+
+        .modal-footer(style="text-align:center !important;margin: 0 auto;")
+          button.btn.btn-default(type='button', data-dismiss='modal') Fechar
+          button#btn-cancelar-chamado.btn.btn-danger(style="display:none;",type='button') Cancelar o chamado
+          button#btn-atender-chamado.btn.btn-primary(style="display:none;",type='button') Atender
+          button#btn-finalizar-chamado.btn.btn-success(style="display:none;",type='button') Finalizar
+
+block javascript
+  script(type='text/javascript',src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRBa1Fu2HJjSZTG4PUMnspbWZpNONKMGg")
+  script(type='text/javascript', src='/static/js/chamado.js')

@@ -1,0 +1,102 @@
+doctype html
+html
+  head
+    title Helpub Admin
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', type='text/css', href='/static/css/vendor.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/flat-admin.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/blue-sky.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/blue.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/red.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/theme/yellow.css')
+
+
+    link(rel='apple-touch-icon', sizes='57x57', href='/static/favicon/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='/static/favicon/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/static/favicon/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='/static/favicon/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/static/favicon/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='/static/favicon/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/static/favicon/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='/static/favicon/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/static/favicon/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/static/favicon/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='/static/favicon/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='/static/favicon/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='/static/favicon/favicon-16x16.png')
+    link(rel='manifest', href='/static/favicon/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='/static/favicon/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
+
+  body
+    .app.app-default
+      aside#sidebar.app-sidebar
+        .sidebar-header
+          a.sidebar-brand(target="_blank" href='http://www.mt.gov.br/')
+           img(style="margin-top:40px;",width="100",height="100",src='/static/images/logo-gov-mt.fw.png')
+          button.sidebar-toggle(type='button')
+            i.fa.fa-times
+        .sidebar-menu(style="height:100%;")
+          ul#menu-app.sidebar-nav
+            li
+              a(data-menu-url='principal' href='/principal')
+                .icon
+                  i.fa.fa-tasks(aria-hidden='true')
+                .title Principal
+            li
+              a(data-menu-url='chamado' href='/chamado')
+                .icon
+                  i.fa.fa-bullhorn(aria-hidden='true')
+                .title Chamados
+
+      .app-container
+        nav#navbar.navbar.navbar-default
+          .container-fluid
+            .navbar-collapse.collapse.in
+              ul.nav.navbar-nav.navbar-mobile
+                //li
+                  button.sidebar-toggle(type='button')
+                    i.fa.fa-bars
+                //li.logo
+                  a.navbar-brand(href='#')
+                    span.highlight Helpub
+                //li
+                  button.navbar-toggle(type='button')
+                    img.profile-img(src='/static/images/profile.png')
+              ul.nav.navbar-nav.navbar-right
+                  li.dropdown.profile
+                    a.dropdown-toggle(href='/perfil', data-toggle='dropdown')
+                      img.profile-img(src='http://icon-icons.com/icons2/35/PNG/512/police_avatar_person_2845.png')
+                      .title Perfil
+                    .dropdown-menu
+                      .profile-info
+                        h4.username Chuck Norris
+                      ul.action
+                        //li
+                          a(href='/perfil')
+                            i.fa.fa-user
+                            |  Perfil
+                        li
+                          a(href='/login')
+                            i.fa.fa-sign-out
+                            |  Sair
+
+        .row
+          .col-md-12
+            block content
+
+        footer.app-footer
+          .row
+            .col-xs-12
+              .footer-copyright
+                | Todos os direitos reservados © 2016 Helpub
+    script(type='text/javascript', src='/static/js/vendor.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+    script(type='text/javascript', src='/static/js/moment.js')
+    script(type='text/javascript', src='/static/js/util.js')
+    script(type='text/javascript', src='/static/js/jquery.validate.min.js')
+    script(type='text/javascript', src='/static/js/jquery.mask.min.js')    
+    script(type='text/javascript', src='/static/js/core.js')
+    block javascript
+

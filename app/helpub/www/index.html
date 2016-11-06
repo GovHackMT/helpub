@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+
+
+        -->
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src * data: gap:  https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src * data:; connect-src *; img-src * data:;">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/framework7.material.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/helpub-app.css">
+    <title>Nerd Spell</title>
+</head>
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-cover layout-dark">
+        <div class="content-block" style="text-align: center;">
+            <div id="cover-box">
+                <img height="115" src="../www/img/logo-gov-mt.png"/>
+            </div>
+        </div>
+        <div class="list-block">
+            <ul>
+                <li>
+                    <a href="#" id="calls" class="item-link close-panel">
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Meus chamados</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="logout" class="item-link close-panel">
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Sair</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="views">
+        <!-- Your main view, should have "view-main" class-->
+        <div class="view view-main">
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-fixed">
+                <!-- Index Page-->
+                <div data-page="index" class="page no-swipeback">
+                    <!-- Top Navbar-->
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="left"></div>
+                            <div class="center sliding" style="left: 22px;">
+                               <img src="img/logo2.png" style="display: inline-block; position: relative; top: 11px;" height="36">
+                               helpub
+                            </div>
+                            <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="page-content index-content">
+                        <div class="content-block" style="text-align: center;">
+                            <!--Panic buttons-->
+                            <h3>Botões de pânico</h3>
+                            <a href="#" class="icon-calls no-pic" data-sigla="TE" style="">
+                                <img class="img-call" src="img/te.png" width="64" />
+                                <h5>Tent. Homicídio</h5>
+                            </a>
+                            <a href="#" class="icon-calls no-pic" data-sigla="AS" style="">
+                                <img class="img-call" src="img/as.png" width="64" />
+                                <h5>Assalto</h5>
+                            </a>
+                            <a href="#" class="icon-calls no-pic" data-sigla="SE" style="">
+                                <img class="img-call" src="img/se.png" width="64" />
+                                <h5>Sequestro</h5>
+                            </a>
+                  
+                            <a href="#" class="btn-login action-btn" data-href="match.html">
+                                LOGAR
+                            </a>
+                            <a href="register.html" class="btn-singin action-btn" data-href="match.html">
+                                CADASTRE-SE PARA MAIS FUNÇÕES
+                            </a>
+
+                            <h3>Ocorrências</h3>
+                            <a href="#" class="icon-calls pic" data-sigla="VI" style="">
+                                <img class="img-call" src="img/vi.png" width="64" />
+                                <h5>Viol. doméstica</h5>
+                            </a>
+
+                            <a href="#" class="icon-calls pic" data-sigla="RO" style="">
+                                <img class="img-call" src="img/ro.png" width="64" />
+                                <h5>Roubo/Furto</h5>
+                            </a>
+
+                            <a href="#" class="icon-calls pic" data-sigla="AC" style="">
+                                <img class="img-call" src="img/ac.png" width="64" />
+                                <h5>Acidente</h5>
+                            </a>
+
+                            <a href="#" class="icon-calls pic" data-sigla="IN" style="">
+                                <img class="img-call" src="img/in.png" width="64" />
+                                <h5>Incêndio</h5>
+                            </a>
+
+                            <a href="#" class="icon-calls pic" data-sigla="HO" style="">
+                                <img class="img-call" src="img/ho.png" width="64" />
+                                <h5>Homicídio</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main-loader">
+    </div>
+    <div id="main-loader-text"></div>
+    <!-- About Popup -->
+    <div class="popup popup-check">
+
+        <div class="content-block content-full">
+            <img id="img-send" src="" style="width: 100%; height: 100%;">
+        </div>
+        <div class="toolbar messagebar messagebar-send">
+            <div class="toolbar-inner">
+                <textarea id="txt-send" placeholder="Descrição (Opcional)"></textarea><a href="#" id="btn-send" class="link"><i class="fa fa-paper-plane fa-2x"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script id="panelLeftTemplate" type="text/template7">
+    </script>
+    <script type="application/javascript" src="js/crypto-core-min.js"></script>
+    <script type="application/javascript" src="js/enc-base64-min.js"></script>
+    <script type="application/javascript" src="js/hmac-sha256.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/platformOverrides.js"></script>
+    <script type="application/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/helpub-app.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
